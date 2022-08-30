@@ -6,8 +6,8 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import type {Node} from 'react';
+import React, { useState } from 'react';
+import type { Node } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -22,16 +22,33 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import LoginScreen from './src/screen/Login';
-import Nav from './src/components/Nav';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './src/screen/Home';
+import Button from './src/components/Button';
+
+
+
+const renderPrivateViews = () => (
+  <Stack.Screen name="Home" component={Home} options={{ headerShown: true  }} />
+)
+
+const renderPublicViews = () => (
+  <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false  }} />
+)
+
+const Stack = createNativeStackNavigator();
 
 const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  const [isSigned, setIsSigned] = useState(false);
 
   return (
-    <LoginScreen />
+    <NavigationContainer>
+      <Stack.Navigator>
+        {isSigned ? renderPrivateViews() : renderPublicViews()}
+       
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

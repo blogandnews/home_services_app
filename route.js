@@ -7,6 +7,7 @@ import LoginScreen from './src/screen/Login';
 
 const Stack = createNativeStackNavigator();
 
+
 const renderPrivateViews = () => (
     <Stack.Screen name="Home" component={Home} options={{ headerShown: true  }} />
   )
@@ -15,7 +16,7 @@ const renderPrivateViews = () => (
     <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false  }} />
   )
 
-const Route = ({isSigned}) => {
+const Route = ({isSigned, errorMessage}) => {
 
     return (
         <NavigationContainer>
@@ -25,6 +26,6 @@ const Route = ({isSigned}) => {
         </NavigationContainer>
     )
 }
-const mapStateToProps = ({AuthReducer}) => AuthReducer
+const mapStateToProps = ({AuthReducer, ErrorReducer}) => ({...AuthReducer, ...ErrorReducer})
 
 export default connect(mapStateToProps)(Route)

@@ -1,12 +1,16 @@
 import React from 'react';
 import { View } from "react-native";
+import { connect } from 'react-redux';
 
 
 
-const Home = () => {
+const Home = ({user}) => {
+    console.log(user)
     return (
         <View></View>
     );
 }
 
-export default Home
+const mapStateToProps = ({AuthReducer}) => AuthReducer
+
+export default connect(mapStateToProps, {})(Home)

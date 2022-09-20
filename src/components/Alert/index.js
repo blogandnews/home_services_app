@@ -1,6 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
-import Button from "../Button";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 
 
@@ -11,12 +10,12 @@ export default function Alert({type = "notice", title = "Notice Notification", m
             <View style={styles.alertContainer}>
                 <View style={styles.alertPopUp}>
                     <View style={styles.alertIcon}>
-                        <Text>ICON OK</Text>
+                        <Image source={require('../../assets/icons/warning.png')} style={{width: 50, height: 50, display: "flex", justifyContent: "center", }}  />
                     </View>
                     <Text style={styles.alertTitle}>{title}</Text>
                     <Text style={styles.alertContent}>{message}</Text>
                     <View style={styles.alertAction}>
-                        <Button title={btnTitle} onPress={onPress} />
+                        <TouchableOpacity style={styles.alertButton} onPress={onPress}><Text style={{color: '#a85c1b', padding: 5, textAlign: 'center'}}>{btnTitle}</Text></TouchableOpacity>
                     </View>
                 </View>
             </View>

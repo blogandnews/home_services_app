@@ -34,19 +34,28 @@ export const styles = StyleSheet.create({
         backgroundColor: '#F9F9F9F9',
         borderRadius: 15,
         alignItems: 'center',
+        borderColor: '#ffb35e',
+        borderWidth: 2
     },
     alertIcon: {
-        padding: 12
+        marginTop: 20
     },
+
     alertTitle: {
         fontSize: 14,
         fontWeight: "700",
-        padding: 8
     },
     alertContent: {
         padding: 8,
     },
     alertAction: {
         padding: 10
+    },
+    alertButton: {
+        borderColor: '#ffb35e',
+        borderWidth: 1,
+        padding: 4,
+        borderRadius: 25,
+        width: 100
     }
 });

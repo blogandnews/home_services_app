@@ -1,16 +1,17 @@
 import React from 'react';
-import { View } from "react-native";
+import { View, Text  } from "react-native";
 import { connect } from 'react-redux';
+import TabNav from '../../components/TabNav';
+import Chatting from '../Chatting';
 
 
 
-const Home = ({user}) => {
-    console.log(user)
+const Home = ({ user }) => {
     return (
-        <View></View>
+       <Chatting />
     );
 }
 
-const mapStateToProps = ({AuthReducer}) => AuthReducer
+const mapStateToProps = ({ AuthReducer }) => AuthReducer
 
 export default connect(mapStateToProps, {})(Home)
